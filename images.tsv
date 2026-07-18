@@ -1,0 +1,40 @@
+repository	tag	image_id	created	virtual_size	shared_size	unique_size	containers_referencing	containers_count	classification
+sales-api	latest	6e23d7047e37	2 months ago	288MB	0B	288.4MB		16	SAFE TO RECREATE (source + Dockerfile present, rebuildable)
+helloapi	latest	6deb754e5d5f	6 months ago	324MB	232.8MB	91.18MB		3	SAFE TO RECREATE (source + Dockerfile present, rebuildable)
+helloapi-api	latest	dabb5599579a	6 months ago	324MB	232.8MB	91.18MB		1	SAFE TO RECREATE (source + Dockerfile present, rebuildable)
+sadaqa_new_api-app	latest	6600ce4748a6	8 months ago	1.13GB	844.3MB	282MB		1	SAFE TO RECREATE (source + Dockerfile present, rebuildable)
+swf_uploader_apis-app	latest	c94598ff30ae	8 months ago	1.13GB	844.3MB	282MB		0	BACKUP FIRST (no live source on disk; only recreatable from swf_uploader_apis.rar archive)
+laravellivewireadmin-app	latest	ac5fe80a0809	8 months ago	1.1GB	519.3MB	581.6MB		1	SAFE TO RECREATE (source still present at E:\LocalDev, rebuildable) - verify before removing
+laravel-livewire-app	latest	affcaabdf0eb	8 months ago	1.11GB	519.3MB	589.3MB		0	SAFE TO RECREATE (source still present at E:\LocalDev, rebuildable) - verify before removing
+composer	2	23b68157c13e	9 months ago	289MB	0B	288.6MB	laravel_livewire_composer	1	SAFE TO RECREATE (official public image, re-pullable anytime)
+ozcarlab-web	latest	1adc2f87fadc	10 months ago	13.3GB	482.3MB	12.77GB		1	SAFE TO RECREATE (source still present at E:\LocalDev, rebuildable) - verify before removing
+maltus/docker-logs-viewer	0.0.2	9a6517f62b0e	11 months ago	13.4MB	0B	13.42MB		1	KEEP (Docker Desktop extension image)
+quiz-game-laravel-app	latest	a17cb176a655	13 months ago	1.19GB	85.23MB	1.101GB		0	PROBABLY UNUSED (source project already gone from host; image is now the only remnant)
+n-app	latest	97d62d8d014a	13 months ago	876MB	85.23MB	790.6MB		0	UNKNOWN / INVESTIGATE (876MB image, no container references it, no matching project directory found under home or E:\LocalDev)
+quizgamevfour-app	latest	a59439bd36d4	13 months ago	1.19GB	0B	1.186GB		1	SAFE TO RECREATE (source still present at E:\LocalDev, rebuildable) - verify before removing
+quizgamevtwo-app	latest	90e4166aea06	14 months ago	1.16GB	870.7MB	292.3MB		1	SAFE TO RECREATE (source still present at E:\LocalDev, rebuildable) - verify before removing
+quizgamevthree-app	latest	9f9ae03a54df	14 months ago	1.16GB	870.7MB	292.3MB		0	SAFE TO RECREATE (source still present at E:\LocalDev, rebuildable) - verify before removing
+quizgame-node	latest	631fe780d8c9	14 months ago	204MB	154.6MB	49.57MB		1	PROBABLY UNUSED (source project already gone from host; image is now the only remnant)
+quizgame-app	latest	fb082e9bfe61	14 months ago	873MB	644.9MB	228.4MB		1	PROBABLY UNUSED (source project already gone from host; image is now the only remnant)
+mylaravelreactnew-app	latest	dcf5aa0cc40a	14 months ago	873MB	644.9MB	228.4MB		1	PROBABLY UNUSED (source project already gone from host; image is now the only remnant)
+mylaravelreactnew-node	latest	56cb923c5019	14 months ago	692MB	154.6MB	537.9MB		1	PROBABLY UNUSED (source project already gone from host; image is now the only remnant)
+mylaravelreact-app	latest	9322f526f7b0	14 months ago	873MB	644.7MB	228.3MB		1	PROBABLY UNUSED (source project already gone from host; image is now the only remnant)
+mylaravel-app	latest	12fb04fe9e74	14 months ago	873MB	644.7MB	228.3MB		1	PROBABLY UNUSED (source project already gone from host; image is now the only remnant)
+mylaravel-node	latest	1c123a77941f	14 months ago	181MB	136MB	44.94MB		1	PROBABLY UNUSED (source project already gone from host; image is now the only remnant)
+mylaravelreact-node	latest	69e1931e469d	14 months ago	181MB	136MB	44.93MB		1	PROBABLY UNUSED (source project already gone from host; image is now the only remnant)
+ozcar-web	latest	944bbb826256	14 months ago	10.1GB	482.3MB	9.621GB		0	SAFE TO RECREATE (source still present at E:\LocalDev, rebuildable) - verify before removing
+login-backend	latest	dbf25ed9cf58	14 months ago	862MB	85.25MB	777.2MB		1	PROBABLY UNUSED (source project already gone from host; image is now the only remnant)
+login-frontend	latest	5fc5199f6e1f	14 months ago	948MB	8.503MB	939.8MB		1	PROBABLY UNUSED (source project already gone from host; image is now the only remnant)
+dpage/pgadmin4	latest	bd71932cb1ef	14 months ago	775MB	8.503MB	766.3MB		1	SAFE TO RECREATE (official public image, re-pullable anytime)
+nginx	stable-alpine	30f1c0d78e0a	14 months ago	73.7MB	0B	73.65MB		0	SAFE TO RECREATE (official public image, re-pullable anytime)
+nginx	latest	c15da6c91de8	15 months ago	279MB	85.25MB	194.1MB	web	1	SAFE TO RECREATE (official public image, re-pullable anytime)
+nginx	alpine	65645c7bb6a0	15 months ago	73.6MB	8.503MB	65.07MB	quiz-nginx, quiz-nginx-4, sadaqa_new_api_nginx	3	SAFE TO RECREATE (official public image, re-pullable anytime)
+mysql	8	2764fe573c51	15 months ago	1.06GB	0B	1.063GB	mylaravel-db-1, mylaravelreact-db-1, mylaravelreactnew-db-1, quizgame-db-1	4	SAFE TO RECREATE (official public image, re-pullable anytime)
+maltus/docker-logs-viewer	0.0.1	5b6ba2dfba4a	17 months ago	12.7MB	0B	12.75MB		0	KEEP (Docker Desktop extension image)
+phpmyadmin/phpmyadmin	latest	95e01f723b5e	17 months ago	814MB	0B	814.2MB		3	SAFE TO RECREATE (official public image, re-pullable anytime)
+phpmyadmin	latest	b8e9de0186fe	17 months ago	813MB	0B	813.2MB	mylaravel-phpmyadmin-1, mylaravelreact-phpmyadmin-1, mylaravelreactnew-phpmyadmin-1, phpmyadmin, quizgame-phpmyadmin-1	5	SAFE TO RECREATE (official public image, re-pullable anytime)
+mysql	8.0	50b5ee0656a2	17 months ago	1.04GB	0B	1.045GB	db, mysql_db, quiz-mysql, quiz-mysql-4, sadaqa_new_api_mysql	5	SAFE TO RECREATE (official public image, re-pullable anytime)
+nginx	1.25	a484819eb602	2 years ago	273MB	0B	273.1MB	mylaravel-webserver-1, mylaravelreact-webserver-1, mylaravelreactnew-webserver-1, quizgame-webserver-1	4	SAFE TO RECREATE (official public image, re-pullable anytime)
+nginx	1.25-alpine	516475cc129d	2 years ago	74.1MB	8.065MB	66.04MB		0	SAFE TO RECREATE (official public image, re-pullable anytime)
+dixtdf/image-tools	1.0.2	2514bf0d9597	2 years ago	19.7MB	8.065MB	11.62MB		1	KEEP (Docker Desktop extension image)
+postgres	12.17	8ffdca6e9208	2 years ago	586MB	0B	585.8MB	ozcarlab-db-1	1	SAFE TO RECREATE (official public image, re-pullable anytime)

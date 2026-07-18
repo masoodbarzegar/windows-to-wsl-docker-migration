@@ -1,0 +1,17 @@
+# Raw database backups, dumps, and recovery working copies.
+# Large, binary, and may contain real application data (e.g. actual user
+# emails/password hashes recovered during migration). Never commit these.
+project-checklists/*-backups/
+backups/
+
+# Cleanup operational evidence (point-in-time Docker state snapshots) -- retained on
+# disk as an audit trail for the approved cleanup, but not durable documentation.
+project-checklists/cleanup-*-snapshot.json
+project-checklists/cleanup-*-snapshot.json.mounts.txt
+
+# Local Claude Code tool-permission cache -- machine/session-specific, not project docs.
+.claude/
+
+# OS/editor cruft
+.DS_Store
+*.swp

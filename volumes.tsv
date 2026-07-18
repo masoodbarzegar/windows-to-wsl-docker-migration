@@ -1,0 +1,5 @@
+volume_name	size	compose_project_label	compose_volume_label	containers_using	mount_destinations	volume_kind	created	classification
+0e1923c5a18fab880258d159917fee528a710d50ef4dbaeece1814c7e69e842b	168.5kB			ozcarlab-pgadmin-1	/var/lib/pgadmin	anonymous	2025-08-27T06:22:19Z	SAFE TO RECREATE (pgAdmin UI settings only, no project data)
+216f58aa8ab25dcdd18c56c46df16207d7128f2e7295a7a75cbff543148ec55b	444.2MB			react_frontend	/app/node_modules	anonymous	2025-03-03T23:32:34Z	SAFE TO RECREATE (reinstallable via npm/yarn install)
+a5fb9adc10c7dadb5ff199380c4e4d96d2700410f39d3417377bb754768206ec	167.9kB			(none - orphaned)		anonymous	2025-05-02T04:04:27Z	UNKNOWN / INVESTIGATE (orphaned, no container references it, origin unclear)
+laravellivewireadmin_dbdata	211.6MB	laravellivewireadmin	dbdata	db	/var/lib/mysql	named	2025-10-25T12:50:57Z	BACKUP FIRST (only true named-volume DB data found; no archive of it exists)

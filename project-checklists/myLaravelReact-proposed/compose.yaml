@@ -1,0 +1,98 @@
+# PROPOSED canonical WSL Compose file for myLaravelReact.
+# Reused directly from the validated myLaravel migration -- only project-specific
+# differences changed (see project-checklists/myLaravelReact.md for the diff list).
+
+name: mylaravelreact_wsl   # explicit + unique: distinguishes from the old, unrelated
+                           # "mylaravelreact" Docker project already on record
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: docker/php/Dockerfile
+    volumes:
+      - ./src:/var/www/html
+    ports:
+      - "${APP_FPM_PORT:-9000}:9000"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  node:
+    build:
+      context: ./src
+      dockerfile: ../docker/node/Dockerfile
+    working_dir: /app
+    volumes:
+      - ./src:/app
+    ports:
+      - "${VITE_DEV_PORT:-5173}:5173"
+    # Original does NOT auto-start the Vite dev server (command was commented out,
+    # `tty: true` used instead to keep the container alive for manual `docker exec` use).
+    # Preserved as-is -- not "fixed" to match myLaravel's active `command: npm run dev`.
+    # command: npm run dev
+    tty: true
+
+  webserver:
+    image: nginx:1.25
+    volumes:
+      - ./src:/var/www/html
+      - ./nginx/default.conf:/etc/nginx/conf.d/default.conf
+    ports:
+      - "${WEB_HTTP_PORT:-80}:80"
+    depends_on:
+      - app
+
+  db:
+    # Pinned explicitly -- see myLaravel migration for why (never the floating "mysql:8" tag).
+    # This service starts on a FRESH, empty named volume and gets populated by restoring a
+    # logical dump produced from the old datadir under a temporary, one-off container --
+    # see the restore workflow note under `volumes:`.
+    image: mysql:8.4.5
+    environment:
+      MYSQL_ROOT_PASSWORD: ${DB_ROOT_PASSWORD:-root}
+      MYSQL_DATABASE: ${DB_DATABASE:-laravel}
+      MYSQL_USER: ${DB_USERNAME:-laravel}
+      MYSQL_PASSWORD: ${DB_PASSWORD:-secret}
+    # Deliberately no `command: --lower-case-table-names=2` here -- normal Linux default (0)
+    # on this fresh volume. Only add back, explicitly and documented, if restore/validation
+    # shows the schema actually needs it.
+    volumes:
+      - dbdata:/var/lib/mysql
+    healthcheck:
+      test: ["CMD-SHELL", 'mysqladmin ping -h 127.0.0.1 -u root -p"$$MYSQL_ROOT_PASSWORD" --silent']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    # Host port intentionally NOT published by default -- see myLaravel migration.
+    # ports:
+    #   - "${DB_PORT:-3306}:3306"
+
+  phpmyadmin:
+    image: phpmyadmin:5.2.1
+    profiles:
+      - tools
+    environment:
+      PMA_HOST: db
+      PMA_USER: ${DB_USERNAME:-laravel}
+      PMA_PASSWORD: ${DB_PASSWORD:-secret}
+    ports:
+      - "${PHPMYADMIN_PORT:-8081}:80"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  # Plain (non-external) declaration -- new volume, nothing pre-existing to adopt.
+  #
+  # Restore workflow (manual, not part of `docker compose up`, not yet performed):
+  #   a. If the WSL-side physical copy can't be opened directly (expected: lower_case_table_names
+  #      mismatch, same as myLaravel), retake the copy onto a case-insensitive (NTFS) location
+  #      and open it there with the matching --lower-case-table-names=2 flag.
+  #   b. Take a logical dump from that temporary container; stop/remove it.
+  #   c. `docker compose up -d db` here to initialize this volume fresh (normal Linux defaults).
+  #   d. Restore the logical dump into this fresh volume.
+  #   e. Run the stack normally -- only reintroduce lower_case_table_names=2 if restore/validation
+  #      shows the schema actually needs it.
+  dbdata:

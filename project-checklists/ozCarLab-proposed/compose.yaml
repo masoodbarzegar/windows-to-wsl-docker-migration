@@ -1,0 +1,66 @@
+# PROPOSED canonical WSL Compose file for ozCarLab.
+# First project outside the validated MySQL/Laravel envelope -- PostgreSQL, two CakePHP
+# sub-applications served by one combined Apache+PHP container. Adapted from the validated
+# standard's principles; new elements (PostgreSQL healthcheck, dual vhost bind mounts) follow
+# the same reasoning as the MySQL family, not a redesign.
+#
+# EOL components (PHP 7.3, PostgreSQL 12.17, unpinned pgAdmin) are DELIBERATELY NOT upgraded
+# here -- preserving exact original behavior is the migration's job; modernizing them is
+# separate, future, explicitly-approved work (see ozCarLab.md notes).
+
+name: ozcarlab_wsl
+
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ./src/ozcar:/var/www/html/ozcar
+      - ./src/ozhub_repo:/var/www/html/ozhub_repo
+      - ./apache-vhosts.conf:/etc/apache2/sites-enabled/000-default.conf
+    ports:
+      - "${WEB_HTTP_PORT:-80}:80"
+    depends_on:
+      db:
+        condition: service_healthy
+
+  db:
+    image: postgres:12.17   # pinned to match the confirmed original image/datadir/backup version exactly -- not upgraded
+    environment:
+      POSTGRES_DB: ${DB_DATABASE:-ozcar}
+      POSTGRES_USER: ${DB_USERNAME:-admin_new}
+      POSTGRES_PASSWORD: ${DB_PASSWORD:-123456}
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", 'pg_isready -U "$$POSTGRES_USER" -d "$$POSTGRES_DB"']
+      interval: 5s
+      timeout: 5s
+      retries: 10
+      start_period: 20s
+    # Host port intentionally NOT published by default -- web/pgadmin reach this service
+    # over the internal Compose network as "db". Uncomment only if a host-side tool
+    # genuinely needs direct access:
+    # ports:
+    #   - "${DB_PORT:-5432}:5432"
+
+  pgadmin:
+    image: dpage/pgadmin4:8.12   # pinned for reproducibility; re-pin if a different tested version is preferred
+    profiles:
+      - tools
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_EMAIL:-admin@example.com}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_PASSWORD:-admin}
+    ports:
+      - "${PGADMIN_PORT:-5050}:80"
+    depends_on:
+      db:
+        condition: service_healthy
+
+volumes:
+  # Fresh, plain (non-external) named volume -- the original project has no Docker-managed
+  # volume to adopt (its `volumes: pg_data:` declaration was dead/unreferenced; the actual
+  # data lived in a bind mount). Deliberately not carried forward. This volume is populated
+  # via the verified logical dump during cutover, not by reusing the raw datadir.
+  pgdata:

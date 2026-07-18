@@ -1,0 +1,63 @@
+container_name	container_id	mount_type	kind	source	destination	mode	volume_name	driver	compose_project
+amazing_shirley	e9d2cbbbf740	bind	bind-mount	/home/masoud/python-learning/sales-analytics-service	/app	rw			
+flamboyant_yonath	9e25f44d8d3e	bind	bind-mount	/home/masoud/python-learning/sales-analytics-service	/app	rw			
+funny_leakey	bc20b2bcd0de	bind	bind-mount	/home/masoud/python-learning/sales-analytics-service	/app	rw			
+nostalgic_hodgkin	b5b203da2431	bind	bind-mount	/home/masoud/python-learning/sales-analytics-service	/app	rw			
+pensive_shirley	e199d58f661a	bind	bind-mount	/home/masoud/python-learning/sales-analytics-service	/app	rw			
+wonderful_dijkstra	fa37dae05464	bind	bind-mount	/home/masoud/python-learning/sales-analytics-service	/app	rw			
+bold_kowalevski	fefafb33803d	bind	bind-mount	/home/masoud/python-learning/sales-analytics-service	/app	rw			
+brave_pike	78c35ea3c189	bind	bind-mount	/home/masoud/python-learning/sales-analytics-service	/app	rw			
+boring_yalow	1fc5616e8b26	bind	bind-mount	/home/masoud/python-learning/sales-analytics-service	/app	rw			
+competent_spence	d586a3894d07	bind	bind-mount	/home/masoud/python-learning/sales-analytics-service	/app	rw			
+laughing_goldberg	53824002cc5d	bind	bind-mount	/home/masoud/python-learning/sales-analytics-service	/app	rw			
+dazzling_johnson	8ea6f691d401	bind	bind-mount	/home/masoud/python-learning/sales-analytics-service	/app	rw			
+gracious_moser	79b1a66c24ec	bind	bind-mount	/home/masoud/python-learning/sales-analytics-service	/app	rw			
+distracted_wilson	88555b7f7e96	bind	bind-mount	/home/masoud/python-learning/sales-analytics-service	/app	rw			
+modest_gates	6265e6d7c487	bind	bind-mount	/home/masoud/python-learning/sales-analytics-service	/app	rw			
+sadaqa_new_api_nginx	7203753a4f4d	bind	bind-mount	/home/masoud/sadaqa_new_api/docker/nginx/default.conf	/etc/nginx/conf.d/default.conf	rw			sadaqa_new_api
+sadaqa_new_api_nginx	7203753a4f4d	bind	bind-mount	/home/masoud/sadaqa_new_api	/var/www/html	rw			sadaqa_new_api
+sadaqa_new_api	765a5dbc2a4c	bind	bind-mount	/home/masoud/sadaqa_new_api	/var/www/html	rw			sadaqa_new_api
+sadaqa_new_api_mysql	2e05b9044088	bind	bind-mount	/home/masoud/sadaqa_new_api/docker/mysql/data	/var/lib/mysql	rw			sadaqa_new_api
+web	ab08945e94a2	bind	bind-mount	E:\LocalDev\Laravel\laravelLivewireAdmin\docker\nginx\default.conf	/etc/nginx/conf.d/default.conf	rw			laravellivewireadmin
+web	ab08945e94a2	bind	bind-mount	E:\LocalDev\Laravel\laravelLivewireAdmin\src	/var/www/html	rw			laravellivewireadmin
+app	d97130e809bb	bind	bind-mount	E:\LocalDev\Laravel\laravelLivewireAdmin\src	/var/www/html	rw			laravellivewireadmin
+db	656330d5a6cf	volume	named-volume	/var/lib/docker/volumes/laravellivewireadmin_dbdata/_data	/var/lib/mysql	rw	laravellivewireadmin_dbdata	local	laravellivewireadmin
+laravel_livewire_composer	885c5647fa8d	bind	bind-mount	E:\LocalDev\Laravel\laravelLivewireAdmin\src	/app	rw			laravellivewireadmin
+ozcarlab-web-1	890f22a36a55	bind	bind-mount	E:\LocalDev\ozCarLab\apache-vhosts.conf	/etc/apache2/sites-enabled/000-default.conf	rw			ozcarlab
+ozcarlab-web-1	890f22a36a55	bind	bind-mount	E:\LocalDev\ozCarLab\src\ozcar	/var/www/html/ozcar	rw			ozcarlab
+ozcarlab-web-1	890f22a36a55	bind	bind-mount	E:\LocalDev\ozCarLab\src\ozhub_repo	/var/www/html/ozhub_repo	rw			ozcarlab
+ozcarlab-pgadmin-1	4dcddc040cd2	volume	anonymous-volume	/var/lib/docker/volumes/0e1923c5a18fab880258d159917fee528a710d50ef4dbaeece1814c7e69e842b/_data	/var/lib/pgadmin	rw	0e1923c5a18fab880258d159917fee528a710d50ef4dbaeece1814c7e69e842b	local	ozcarlab
+ozcarlab-db-1	1e2dc33b40d0	bind	bind-mount	E:\LocalDev\ozCarLab\pg_data	/var/lib/postgresql/data	rw			ozcarlab
+quiz-nginx-4	9703f1d48378	bind	bind-mount	E:\LocalDev\Laravel\quizGameVfour\src	/var/www/html	rw			quizgamevfour
+quiz-nginx-4	9703f1d48378	bind	bind-mount	E:\LocalDev\Laravel\quizGameVfour\docker\nginx\default.conf	/etc/nginx/conf.d/default.conf	rw			quizgamevfour
+quiz-laravel-app-4	68d1d7e2a481	bind	bind-mount	E:\LocalDev\Laravel\quizGameVfour\src	/var/www/html	rw			quizgamevfour
+quiz-mysql-4	9b327547c253	bind	bind-mount	E:\LocalDev\Laravel\quizGameVfour\docker\mysql\data	/var/lib/mysql	rw			quizgamevfour
+quiz-nginx	f2e4b12a03b8	bind	bind-mount	E:\LocalDev\Laravel\quizGameVtwo\docker\nginx\default.conf	/etc/nginx/conf.d/default.conf	rw			quizgamevtwo
+quiz-nginx	f2e4b12a03b8	bind	bind-mount	E:\LocalDev\Laravel\quizGameVtwo\src	/var/www/html	rw			quizgamevtwo
+quiz-laravel-app	b330d004cc06	bind	bind-mount	E:\LocalDev\Laravel\quizGameVtwo\src	/var/www/html	rw			quizgamevtwo
+quiz-mysql	da49f9045c3c	bind	bind-mount	E:\LocalDev\Laravel\quizGameVtwo\docker\mysql\data	/var/lib/mysql	rw			quizgamevtwo
+quizgame-webserver-1	cac5cd0becd7	bind	bind-mount	E:\LocalDevelopments\Laravel\quizGame\nginx\default.conf	/etc/nginx/conf.d/default.conf	rw			quizgame
+quizgame-webserver-1	cac5cd0becd7	bind	bind-mount	E:\LocalDevelopments\Laravel\quizGame\src	/var/www/html	rw			quizgame
+quizgame-app-1	e651e950e8bf	bind	bind-mount	E:\LocalDevelopments\Laravel\quizGame\src	/var/www/html	rw			quizgame
+quizgame-node-1	364a5762b0e5	bind	bind-mount	E:\LocalDevelopments\Laravel\quizGame\src	/app	rw			quizgame
+quizgame-db-1	5d32d94a7a8e	bind	bind-mount	E:\LocalDevelopments\Laravel\quizGame\dbdata	/var/lib/mysql	rw			quizgame
+mylaravelreactnew-webserver-1	d27e55c40b4e	bind	bind-mount	E:\LocalDevelopments\Laravel\myLaravelReactNew\src	/var/www/html	rw			mylaravelreactnew
+mylaravelreactnew-webserver-1	d27e55c40b4e	bind	bind-mount	E:\LocalDevelopments\Laravel\myLaravelReactNew\nginx\default.conf	/etc/nginx/conf.d/default.conf	rw			mylaravelreactnew
+mylaravelreactnew-app-1	f6a8137ea7fb	bind	bind-mount	E:\LocalDevelopments\Laravel\myLaravelReactNew\src	/var/www/html	rw			mylaravelreactnew
+mylaravelreactnew-node-1	cd02d419e653	bind	bind-mount	E:\LocalDevelopments\Laravel\myLaravelReactNew\src	/app	rw			mylaravelreactnew
+mylaravelreactnew-db-1	e259179fd403	bind	bind-mount	E:\LocalDevelopments\Laravel\myLaravelReactNew\dbdata	/var/lib/mysql	rw			mylaravelreactnew
+mylaravelreact-webserver-1	fee3eb787d0d	bind	bind-mount	E:\LocalDevelopments\Laravel\myLaravelReact\nginx\default.conf	/etc/nginx/conf.d/default.conf	rw			mylaravelreact
+mylaravelreact-webserver-1	fee3eb787d0d	bind	bind-mount	E:\LocalDevelopments\Laravel\myLaravelReact\src	/var/www/html	rw			mylaravelreact
+mylaravelreact-app-1	094fa07ecee9	bind	bind-mount	E:\LocalDevelopments\Laravel\myLaravelReact\src	/var/www/html	rw			mylaravelreact
+mylaravelreact-node-1	e186142c91c4	bind	bind-mount	E:\LocalDevelopments\Laravel\myLaravelReact\src	/app	rw			mylaravelreact
+mylaravelreact-db-1	b99d0ddfd4fd	bind	bind-mount	E:\LocalDevelopments\Laravel\myLaravelReact\dbdata	/var/lib/mysql	rw			mylaravelreact
+mylaravel-webserver-1	4c1df2f1ea43	bind	bind-mount	E:\LocalDevelopments\myLaravel\nginx\default.conf	/etc/nginx/conf.d/default.conf	rw			mylaravel
+mylaravel-webserver-1	4c1df2f1ea43	bind	bind-mount	E:\LocalDevelopments\myLaravel\src	/var/www/html	rw			mylaravel
+mylaravel-app-1	224549b483f5	bind	bind-mount	E:\LocalDevelopments\myLaravel\src	/var/www/html	rw			mylaravel
+mylaravel-node-1	eb044d59fd2f	bind	bind-mount	E:\LocalDevelopments\myLaravel\src	/app	rw			mylaravel
+mylaravel-db-1	835c4e6e16a7	bind	bind-mount	E:\LocalDevelopments\myLaravel\dbdata	/var/lib/mysql	rw			mylaravel
+php_backend	dced8ad3ca7c	bind	bind-mount	E:\LocalDevelopments\React\login\backend	/var/www/html	rw			login
+react_frontend	94b402da040c	bind	bind-mount	E:\LocalDevelopments\React\login\frontend	/app	rw			login
+react_frontend	94b402da040c	volume	anonymous-volume	/var/lib/docker/volumes/216f58aa8ab25dcdd18c56c46df16207d7128f2e7295a7a75cbff543148ec55b/_data	/app/node_modules	rw	216f58aa8ab25dcdd18c56c46df16207d7128f2e7295a7a75cbff543148ec55b	local	login
+mysql_db	39ca576fba3d	bind	bind-mount	E:\LocalDevelopments\React\login\db_init	/docker-entrypoint-initdb.d	rw			login
+mysql_db	39ca576fba3d	bind	bind-mount	E:\LocalDevelopments\React\login\db_data	/var/lib/mysql	rw			login
